@@ -1,4 +1,5 @@
 <?php
+    //connects database.php to create.php
     require_once(__DIR__ . "/../model/database.php");
     
     $connection = new mysqli($host, $username, $password);

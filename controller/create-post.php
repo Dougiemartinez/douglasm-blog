@@ -9,8 +9,14 @@
     //this post means its recieving data call post and filter
     $post = filter_input(INPUT_POST, "post", FILTER_SANITIZE_STRING);
     
-    echo  "<p>Title: $title</p>";
-    echo  "<p>Post: $post</p>";
-
+    $query = $connection->query("INSERT INTO posts SET title = '$title', posts = '$post'");
+    
+    if($query) {
+        echo "<p>Successfuly added post: $title</p>";
+    }
+    else {
+        echo "<p>$connection->error</p>";
+    }
+    
     $connection->close();
 //close connection to database

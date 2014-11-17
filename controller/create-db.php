@@ -1,6 +1,7 @@
 <?php
-    //connects database.php to create.php
-    require_once(__DIR__ . "/../model/database.php");
+    //connects config.php to create.php
+    //changed database.php to config.php
+    require_once(__DIR__ . "/../model/config.php");
     
     $connection = new mysqli($host, $username, $password);
     

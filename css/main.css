@@ -1,3 +1,28 @@
-@media (max-width: 800px) {
-    body { background:red;}
-};
+body{
+    background: url(https://unsplash.imgix.net/photo-1414541944151-2f3ec1cfd87d?q=75&fm=jpg&s=511919f2637303c6903fc7c55b297103) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+}
+
+#banner2{
+    width: 900px;
+    margin-left: 210px;
+    background-color: black;
+    opacity: .5;
+    color: white;
+}
+
+#post {
+    font-size: 70px;
+}
+
+.post{
+     width: 900px;
+    margin-left: 210px;
+    background-color: black;
+    opacity: .5;
+    color: white;
+}

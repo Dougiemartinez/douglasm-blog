@@ -13,25 +13,26 @@ class Database {
     public function __construct($host, $username, $password, $database) {
         $this->host = $host;
         $this->username = $username;
-        $this->password = $username;
+        $this->password = $password;
         $this->database = $database;
 
         $this->connection = new mysqli($host, $username, $password);
 
         if ($this->connection->connect_error) {
-            die("Error: = " . $this->connection->connect_error);
+            die("<p>Error: " . $this->connection->connection_error . "</p>");
         }
 
         $exists = $this->connection->select_db($database);
 
         if (!$exists) {
-            $query = $connection->query("CREATE DATABASE $database");
+            $query = $this->connection->query("CREATE DATABASE $database");
 
             if ($query) {
-                echo "Succesfully created database: " . $database;
+                echo "<p>Succesfully created database: " . $database . "</p>";
             }
+            //displays database already exists
         } else {
-            echo "Database already exists.";
+            echo "<p>Database already exists.</p>";
         }
 //created functions
 //the function__construct allows you to pass any parameters on object construction
@@ -47,14 +48,16 @@ class Database {
 
 //the isset lets you check if there is information present in the variable
     public function closeConnection() {
+        //checks if there is information present in variable. Return null if no
+
         if (isset($this->connection)) {
             $this->connection->close();
         }
     }
-
+    //passes a string when we call for query
     public function query($string) {
         $this->openConnecction();
-
+        //querys our connection
         $query = $this->connection->query($string);
         
         if(!$query) {
@@ -62,7 +65,7 @@ class Database {
         }
 
         $this->closeConnection();
-
+            //sees if query is true or false
         return $query;
     }
 
